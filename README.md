@@ -1,5 +1,7 @@
 # Shuffle Neofetch Pics
 
+![img](./working.gif)
+
 This is a program that allows you shuffle an entire directory worth of pictures when using [neofetch](https://github.com/dylanaraps/neofetch).
 
 The initial version of this program just used basic bash logic that wrapped a blocking `for` loop around an `ls` command on a directory of pictures.
