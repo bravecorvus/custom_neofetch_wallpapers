@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd agent for custom_neofetch_wallpapers.
+
+  Do NOT copy this file into ~/Library/LaunchAgents/ unedited: launchd does not
+  expand ~, $HOME, or environment variables in these keys, so the __REPO__ and
+  __HOME__ placeholders below must be replaced with real absolute paths first.
+  See the "Daemon" section of README.md for the one-liner that does it.
+
+  The filename must stay com.neofetch.plist — it has to match the Label.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Must equal the plist's filename minus .plist, or launchd rejects the job. -->
+    <key>Label</key>
+    <string>com.neofetch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__REPO__/custom_neofetch_wallpapers</string>
+        <string>__REPO__/img</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__REPO__</string>
+
+    <!-- Start as soon as the agent is bootstrapped, and again at every login. -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Restart if it ever dies. -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- Wait this long between restarts so a crash loop cannot spin the CPU. -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- Tells the scheduler this is not interactive; keeps it off the QoS fast path. -->
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/Library/Logs/com.neofetch.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>__HOME__/Library/Logs/com.neofetch.log</string>
+</dict>
+</plist>

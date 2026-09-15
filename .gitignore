@@ -1,2 +1,4 @@
+/target
 custom_neofetch_wallpapers
 img/*
+.DS_Store
