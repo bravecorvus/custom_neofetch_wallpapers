@@ -1,0 +1,16 @@
+[package]
+name = "custom_neofetch_wallpapers"
+version = "2.0.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Tiny HTTP server that hands out a rotating, shuffled image path to fastfetch/neofetch"
+license = "MIT"
+
+[dependencies]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "none"

@@ -1,3 +1,5 @@
+/target
 custom_neofetch_wallpapers
 img/*
 nohup.out
+.DS_Store
